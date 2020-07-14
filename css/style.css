@@ -15,13 +15,21 @@ Dark green: #28b485
     box-sizing: border-box;    /* border and padding will not added width and hieght*/
 }
 
+html{
+    font-size: 10px;     /*now 1 rem = 10px*/
+
+}
+
+
+
+
 body {
     font-family: "Lato", sans-serif ;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header{
@@ -42,13 +50,13 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 
 }
 
 .logo{
-    height: 35px;
+    height: 3.5rem;
 
     
 }
@@ -60,7 +68,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* means cut the starting 50 % width || cut the starting 50% top */
-    
+    text-align: center;
 }
 
 
@@ -69,14 +77,14 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden;     /*shakiy ko ignore karne ke liye*/
-
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
    animation: moveInLeft;              /* animatin lagane ke liye */
     animation-duration: 1s;
@@ -88,9 +96,9 @@ animation-timing-function: ease-out;   /*jaldi se ayega or fhir dhere hojayega
 
 .heading-primary-sub{
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation: moveInRight 1s ease-out;
 }
@@ -100,13 +108,13 @@ animation-timing-function: ease-out;   /*jaldi se ayega or fhir dhere hojayega
     /* animation start */
     0%{
 opacity: 0;
-transform: translate(-100px);       /*left side se start hoga 0 opacity se*/
+transform: translate(-10rem);       /*left side se start hoga 0 opacity se*/
     }
 
     /* aniamtion middle */
 
     80%{
- transform: translate(10px);           /*-100 se 20 tak jayega iske badd 0 pe back*/
+ transform: translate(1rem);           /*-100 se 20 tak jayega iske badd 0 pe back*/
     }
 
     /* animation end */
@@ -124,18 +132,96 @@ transform: translate(0);        /*-100 se 0 mtlb right pe ayega*/
     /* animation start */
     0%{
 opacity: 0;
-transform: translate(100px);       /*right side se start hoga 20 opacity se*/
+transform: translate(10rem);       /*right side se start hoga 20 opacity se*/
     }
 
     /* aniamtion middle */
 
     80%{
- transform: translate(-10px);           /*-100 se 20 tak jayega iske badd 0 pe back
+ transform: translateX(-1rem);           /*-100 se 20 tak jayega iske badd 0 pe back*/
     }
 
     /* animation end */
     100% {
 opacity: 1;
 transform: translate(0);        /*-100 se 0 mtlb right pe ayega*/
+    }
+}
+
+
+
+
+
+
+
+.btn:link,
+.btn:visited {   /*isse ek bar dekhe hue link dobara purple nahi hoge*/
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+border-radius: 10rem;
+position: relative;
+
+transition: all 0.2s;
+}
+
+.btn:hover{   /*when we bring mouse closer*/
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);    /*up 0 || down 1 || blur shadow 2rem*/
+}
+
+.btn:active {    /*jab click karenge*/
+    transform: translateY(-0.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);  /*active mein humne value kam kardi ki jise yeah lage ki hum button press kar rahe hai*/
+}
+
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /*button ke peche chala jayega isse*/
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+
+} 
+
+.btn:hover::after{
+transform: scaleX(1.4) scaleY(1.6);
+opacity:0;
+}
+
+.btn-animated{
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;    /*apply bottom animation before the start*/
+}
+
+@keyframes moveInBottom {
+     
+    /* animation start */
+    0%{
+       opacity: 0;
+       transform: translateY(3rem);     
+    }
+   
+    100% {
+         opacity: 1;
+         transform: translate(0);       
     }
 }
