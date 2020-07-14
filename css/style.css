@@ -1,0 +1,141 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+    /* This is universal selector which will apply on each element */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    /* border and padding will not added width and hieght*/
+}
+
+body {
+    font-family: "Lato", sans-serif ;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header{
+
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.808) ), url(../img/hero.jpg);
+    background-size: cover;       /*whatever the width it's try to fit in the page*/
+    background-position: top;     /*nechee se uper karenge toa bottom part gayab hoga uper wala nahi  || agar bottom karenge toa scroll karne mein uper wala gayab hoga neche wala wahi pe rahega*/
+
+            /* left -> right -> right-bottom ->left-bottom  */
+              /* x y ,    x y,     x y,           x y */
+                /* 0  0,     100%(porra left se right) 0(uper se neche 0),   100% (left to right poora) 400px(uper se neche bass 475vh) ,0 100(uper se neche full) */
+   
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+ position: relative;   /* relative ke andar absolute aata hai and absolute realtive ko hi apna box manta hai*/
+
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+
+}
+
+.logo{
+    height: 35px;
+
+    
+}
+
+
+
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* means cut the starting 50 % width || cut the starting 50% top */
+    
+}
+
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;     /*shakiy ko ignore karne ke liye*/
+
+}
+
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+   animation: moveInLeft;              /* animatin lagane ke liye */
+    animation-duration: 1s;
+animation-timing-function: ease-out;   /*jaldi se ayega or fhir dhere hojayega 
+
+    /* animation-delay: 3s;   mtlb site ke 3 sec load hone ke badd*/
+    /* animation-iteration-count: 3s;  3 barr apne app ko repeat karna*/
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+     
+    /* animation start */
+    0%{
+opacity: 0;
+transform: translate(-100px);       /*left side se start hoga 0 opacity se*/
+    }
+
+    /* aniamtion middle */
+
+    80%{
+ transform: translate(10px);           /*-100 se 20 tak jayega iske badd 0 pe back*/
+    }
+
+    /* animation end */
+    100% {
+opacity: 1;
+transform: translate(0);        /*-100 se 0 mtlb right pe ayega*/
+    }
+
+
+}
+
+
+@keyframes moveInRight {
+     
+    /* animation start */
+    0%{
+opacity: 0;
+transform: translate(100px);       /*right side se start hoga 20 opacity se*/
+    }
+
+    /* aniamtion middle */
+
+    80%{
+ transform: translate(-10px);           /*-100 se 20 tak jayega iske badd 0 pe back
+    }
+
+    /* animation end */
+    100% {
+opacity: 1;
+transform: translate(0);        /*-100 se 0 mtlb right pe ayega*/
+    }
+}
